@@ -11,6 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import feedReducer from "./feedSlice";
 
 // Persist configuration
 const persistConfig = {
@@ -22,6 +23,7 @@ const persistConfig = {
 // Combine reducers (if you add more reducers in the future)
 const rootReducer = combineReducers({
   user: userReducer,
+  feed: feedReducer,
 });
 
 // Wrap reducers with persistReducer

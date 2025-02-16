@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.5",
     "@reduxjs/toolkit": "^2.5.1",
     "@tailwindcss/vite": "^4.0.3",
     "axios": "^1.7.9",
@@ -19,6 +20,7 @@
     "react-hot-toast": "^2.5.2",
     "react-redux": "^9.2.0",
     "react-router": "^7.1.5",
+    "react-tinder-card": "^1.6.4",
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
