@@ -12,6 +12,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import feedReducer from "./feedSlice";
+import ConnectionReducer from "./connectionSlice";
 
 // Persist configuration
 const persistConfig = {
@@ -24,6 +25,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userReducer,
   feed: feedReducer,
+  connection: ConnectionReducer,
 });
 
 // Wrap reducers with persistReducer
