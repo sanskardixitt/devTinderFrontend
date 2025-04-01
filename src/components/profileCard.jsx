@@ -1,4 +1,5 @@
 import React from "react";
+import profileImage from "../assets/undraw_pic-profile_nr49.svg";
 
 const StaticFeedCard = ({ user }) => {
   return (
@@ -7,7 +8,7 @@ const StaticFeedCard = ({ user }) => {
       style={{
         backgroundImage: `url("${
           !user.photoUrl || user.photoUrl.trim() === ""
-            ? "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
+            ? profileImage
             : user.photoUrl
         }")`,
         backgroundSize: "cover",

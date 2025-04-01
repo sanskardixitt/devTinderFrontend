@@ -4,7 +4,7 @@ import { BASEURL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addRequests } from "../utils/requestSlice";
 import BgImage from "../assets/undraw_online-connection_c56e.svg";
-import RequestCard from "./RequestCard";
+import RequestCard from "./requestCard";
 const Requests = () => {
   const dispatch = useDispatch();
   const requestConnection = useSelector((store) => store.requests);

@@ -5,7 +5,7 @@ const FeedCard = ({ user, onSwipe, onCardLeftScreen }) => {
     <TinderCard
       key={user._id}
       className="absolute w-full h-full shadow-xl rounded-2xl "
-      onSwipe={(dir) => onSwipe(dir, user.firstName)}
+      onSwipe={(dir) => onSwipe(dir, user.firstName, user._id)}
       onCardLeftScreen={() => onCardLeftScreen(user.firstName)}
       preventSwipe={["up", "down"]}
     >
