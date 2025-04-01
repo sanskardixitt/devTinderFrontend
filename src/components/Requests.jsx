@@ -2,32 +2,34 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { BASEURL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addConnection } from "../utils/connectionSlice";
-import ConnectionCard from "./connectionsList";
+import { addRequests } from "../utils/requestSlice";
 import BgImage from "../assets/undraw_online-connection_c56e.svg";
-
-const Connections = () => {
-  const connections = useSelector(
-    (store) => store.connection.connections || []
-  );
+import RequestCard from "./RequestCard";
+const Requests = () => {
   const dispatch = useDispatch();
-  console.log(connections);
+  const requestConnection = useSelector((store) => store.requests);
 
-  const fetchConnection = async () => {
+  const fetchRequests = async () => {
     try {
-      const res = await axios.get(`${BASEURL}/user/connections`, {
+      const res = await axios.get(BASEURL + "/user/requests/received", {
         withCredentials: true,
       });
-      console.log("res", res);
-      dispatch(addConnection(res.data.data));
+
+      console.log("res", res.data.data);
+
+      dispatch(addRequests(res.data.data));
     } catch (error) {
-      console.log(error);
+      console.log("Error", error);
     }
   };
-
   useEffect(() => {
-    fetchConnection();
+    fetchRequests();
   }, []);
+
+  console.log("requestConnection", requestConnection);
+
+  // if (!requestConnection) return;
+  // if (requestConnection.length === 0) return <h1>No connections found </h1>;
 
   return (
     <div className="min-h-screen">
@@ -45,12 +47,12 @@ const Connections = () => {
       {/* Connections List */}
       <div className="max-w-4xl mx-auto mt-6 p-4">
         <h1 className="text-3xl font-bold text-center mb-4 text-lightFog-100">
-          Your Connections
+          Your Connections Requests
         </h1>
         <div className="space-y-4">
-          {connections.length > 0 ? (
-            connections.map((connection) => (
-              <ConnectionCard key={connection._id} connection={connection} />
+          {requestConnection.length > 0 ? (
+            requestConnection.map((connection) => (
+              <RequestCard key={connection._id} connection={connection} />
             ))
           ) : (
             <p className="text-center text-lightFog-100">
@@ -63,4 +65,4 @@ const Connections = () => {
   );
 };
 
-export default Connections;
+export default Requests;

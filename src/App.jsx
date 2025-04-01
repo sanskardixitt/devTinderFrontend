@@ -12,6 +12,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { appStore, persistor } from "./utils/appStore";
 import Connections from "./components/connections";
+import Requests from "./components/Requests";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/connections" element={<Connections />}></Route>
-                <Route path="/requests" element={<Profile />}></Route>
+                <Route path="/requests" element={<Requests />}></Route>
               </Route>
             </Routes>
           </BrowserRouter>

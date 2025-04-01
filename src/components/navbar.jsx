@@ -80,6 +80,9 @@ const Navbar = () => {
                     connections
                     <span className="badge">New</span>
                   </Link>
+                  <Link to="/requests" className="justify-between">
+                    Requests
+                  </Link>
                 </li>
                 <li>
                   <a>Settings</a>
