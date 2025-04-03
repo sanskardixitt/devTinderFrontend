@@ -12,16 +12,12 @@ const Body = () => {
   const navigate = useNavigate();
   const userdata = useSelector((store) => store.user);
   const fetchUser = async () => {
-    if (userdata == null) {
-      return;
-    }
     try {
       const res = await axios.get(`${BASEURL}/profile/view`, {
         withCredentials: true,
       });
 
       if (res.status === 200 && res.data) {
-        console.log("u", res.data);
         dispatch(addUser(res.data));
       } else {
         throw new Error("Invalid user data");
