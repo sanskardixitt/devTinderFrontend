@@ -60,9 +60,8 @@ const Premium = () => {
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4 py-12">
       {isPremium ? (
-        <h1>
-          `You are already a ${membershipType ? membershipType : "premium"}{" "}
-          user`
+        <h1 className="text-2xl font-semibold text-indigo-600 bg-indigo-100 px-6 py-4 rounded-2xl border-l-4 border-indigo-500 shadow-md max-w-fit mx-auto text-center">
+          You are already a {membershipType ? membershipType : "premium"} user
         </h1>
       ) : (
         <div className="max-w-4xl w-full">
