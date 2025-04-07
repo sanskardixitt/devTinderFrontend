@@ -14,7 +14,7 @@ import { appStore, persistor } from "./utils/appStore";
 import Connections from "./components/connections";
 import Requests from "./components/Requests";
 import Signup from "./components/signup";
-import Premium from "./components/premium";
+import Premium from "./components/Premium"; // ✅ Capital 'P'
 
 function App() {
   return (
