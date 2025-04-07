@@ -6,11 +6,13 @@ import { BASEURL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { Toaster, toast } from "react-hot-toast";
+import Footer from "./Footer";
 
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userdata = useSelector((store) => store.user);
+
   const fetchUser = async () => {
     try {
       const res = await axios.get(`${BASEURL}/profile/view`, {
@@ -27,7 +29,6 @@ const Body = () => {
         "User fetch failed:",
         error.response?.data || error.message
       );
-
       navigate("/login");
     }
   };
@@ -36,10 +37,14 @@ const Body = () => {
     if (!userdata) fetchUser();
   }, []);
 
+  const currentPath = window.location.pathname;
+  const showFooter = currentPath === "/login" || currentPath === "/signup";
+
   return (
     <div>
       <Navbar />
       <Outlet />
+      {showFooter && <Footer />}
       <Toaster position="top-right" />
     </div>
   );

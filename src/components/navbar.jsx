@@ -83,6 +83,9 @@ const Navbar = () => {
                   <Link to="/requests" className="justify-between">
                     Requests
                   </Link>
+                  <Link to="/premium" className="justify-between">
+                    Premium
+                  </Link>
                 </li>
                 <li>
                   <a>Settings</a>

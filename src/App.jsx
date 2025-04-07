@@ -14,6 +14,7 @@ import { appStore, persistor } from "./utils/appStore";
 import Connections from "./components/connections";
 import Requests from "./components/Requests";
 import Signup from "./components/signup";
+import Premium from "./components/premium";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/connections" element={<Connections />}></Route>
                 <Route path="/requests" element={<Requests />}></Route>
+                <Route path="/premium" element={<Premium />}></Route>
               </Route>
             </Routes>
           </BrowserRouter>

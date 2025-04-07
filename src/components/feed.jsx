@@ -57,7 +57,7 @@ const Feed = () => {
         toast.success(`You have sent a connection request to ${name}`);
       }
     } catch (error) {
-      toast.error("Error during swipe, please try again!");
+      toast.error("Error during swipe, connnection request exists!");
       console.error(
         "Error during swipe:",
         error.response ? error.response.data : error.message
