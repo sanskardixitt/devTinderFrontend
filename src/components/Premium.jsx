@@ -7,7 +7,7 @@ const Premium = () => {
   const [membershipType, setMembershipType] = React.useState("");
   const verifyPaymentUser = async () => {
     try {
-      const response = await axios.get(BASEURL + "/payment/verify", {
+      const response = await axios.get(BASEURL + "/premium/verify", {
         withCredentials: true,
       });
       if (response.data.isPremium) {
@@ -19,39 +19,43 @@ const Premium = () => {
     }
   };
   const handlePayment = async (type) => {
-    const order = await axios.post(
-      BASEURL + "/payment/create",
-      {
-        membershipType: type,
-      },
-      {
-        withCredentials: true,
-      }
-    );
+    try {
+      const order = await axios.post(
+        BASEURL + "/payment/create",
+        {
+          membershipType: type,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
-    const { keyId, orderId, currency, notes, amount } = order.data;
+      const { keyId, orderId, currency, notes, amount } = order.data;
 
-    const options = {
-      key: keyId,
-      amount,
-      currency,
-      name: "DevMeet",
-      description: "connection to others developers",
-      order_id: orderId, // This is the order_id created in the backend
-      prefill: {
-        name: notes.firstName + " " + notes.lastName,
-        email: notes.emailId,
-        contact: 9999999998,
-      },
-      theme: {
-        color: "#F37254",
-      },
-      handler: verifyPaymentUser,
-    };
+      const options = {
+        key: keyId,
+        amount,
+        currency,
+        name: "DevMeet",
+        description: "connection to others developers",
+        order_id: orderId, // This is the order_id created in the backend
+        prefill: {
+          name: notes.firstName + " " + notes.lastName,
+          email: notes.emailId,
+          contact: 9999999998,
+        },
+        theme: {
+          color: "#F37254",
+        },
+        handler: verifyPaymentUser,
+      };
 
-    const rzp = new window.Razorpay(options);
-    rzp.open();
-    console.log(order);
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+      console.log("0rder", order);
+    } catch (error) {
+      console.error("Error creating order:", error);
+    }
   };
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4 py-12">
