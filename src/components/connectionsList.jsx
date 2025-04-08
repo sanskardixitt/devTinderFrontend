@@ -2,6 +2,7 @@ import React from "react";
 import profileImage from "../assets/undraw_pic-profile_nr49.svg";
 import { MessageCircle } from "lucide-react";
 import { Link } from "react-router";
+import chatImage from "../assets/chat.png";
 
 const ConnectionCard = ({ connection }) => {
   return (
@@ -44,7 +45,7 @@ const ConnectionCard = ({ connection }) => {
         to={"/chat/" + connection._id}
         className="p-2 rounded-full hover:bg-mutedSteel-100 transition cursor-pointer"
       >
-        <MessageCircle className="w-8 h-8 text-deepSky-100" />
+        <img src={chatImage} alt="Chat" className="w-10 h-10  object-cover" />
       </Link>
     </div>
   );

@@ -6,6 +6,7 @@ import { createSocketConnection } from "../utils/socket";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { BASEURL } from "../utils/constants";
+import sendIcon from "../assets/send.png";
 
 const Chat = () => {
   const { targetUserId } = useParams();
@@ -148,7 +149,7 @@ const Chat = () => {
             onClick={sendMessage}
             className="p-2 rounded-full bg-white text-deepSky-100 hover:bg-lightFog-100 transition"
           >
-            <Send className="w-5 h-5" />
+            <img src={sendIcon} alt="Send" className="w-6 h-6" />
           </button>
         </div>
       </div>
